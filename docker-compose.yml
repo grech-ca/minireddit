@@ -1,0 +1,14 @@
+version '3.8'
+
+services:
+  container_name: mikushin-project
+  db:
+    image: mysql
+    restart: always
+    env_file: ./.env
+    environment:
+      MYSQL_USERNAME: ${DB_USER?:err}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD?:err}
+      MYSQL_DATABASE: ${DB_NAME?:err}
+    ports:
+      - ${DB_PORT?:err}:${DB_PORT?:err}
