@@ -1,10 +1,17 @@
-import { FC } from 'react';
-import { AppProps } from 'next/app';
+import { FC, Fragment } from 'react';
 
-import 'bootstrap/dist/css/bootstrap.css';
+import { AppProps } from 'next/app';
+import { ToastContainer } from 'react-toastify';
+
+import 'styles/index.scss';
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />
+  return (
+    <Fragment>
+      <Component {...pageProps} />
+      <ToastContainer />
+    </Fragment>
+  );
 };
 
 export default App;
